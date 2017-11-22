@@ -36,31 +36,12 @@ import OutputFormats
 import NTestFormats
 import NTestFileFinder
 import datetime
+import configparser
 
 #
 # Global Variables used
 #
-__version__ = "v17.11.8"
-
-#
-# Define User Inputs - Hardcoded for Now
-#
-result_file_dir = "/Users/maechlin/PycharmProjects/CSEPcode/printCSEP/results"
-#result_file_dir = "/home/csep/operations/SCEC-natural-laboratory/one-day-models/results"
-
-test_xml_name ="NTest"
-test_result_name = "N-Test"
-
-#
-# Define period of one-day-models
-#
-forecast_start_year = 2007
-forecast_start_month = 8
-forecast_start_day = 1
-forecast_end_year = 2017
-forecast_end_month = 3
-forecast_end_day = 4
-
+__version__ = "v17.11.22"
 
 if __name__ == "__main__":
     #
@@ -69,6 +50,25 @@ if __name__ == "__main__":
 
     test_date_list = [] # Array of test_dates in string format
     test_result_list = [] # Arrray of testresult objects, used to generate reports
+
+    #
+    # Define User Inputs - Read from csep_results.cfg file
+    #
+    config = configparser.ConfigParser()
+    config.read("csep_results.cfg")
+    result_file_dir = config["DEFAULT"]["result_file_dir"]
+    result_file_dir = result_file_dir.replace('"','') # remove any quote marks from string
+    test_xml_name = config["DEFAULT"]["test_xml_name"]
+    test_xml_name = test_xml_name.replace('"','') # remove any quote marks from string
+    test_result_name = config["DEFAULT"]["test_result_name"]
+    test_result_name = test_result_name.replace('"','') # remove any quote marks from string
+    forecast_start_year = int(config["DEFAULT"]["forecast_start_year"])
+    forecast_start_month = int(config["DEFAULT"]["forecast_start_month"])
+    forecast_start_day = int(config["DEFAULT"]["forecast_start_day"])
+    forecast_end_year = int(config["DEFAULT"]["forecast_end_year"])
+    forecast_end_month = int(config["DEFAULT"]["forecast_end_month"])
+    forecast_end_day = int(config["DEFAULT"]["forecast_end_day"])
+
     #
     # Create a list of expected test dates
     #

@@ -1,0 +1,11 @@
+# all.rTest_N-Test.xml
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2016-01-30/scec.csep.AllModelsSummary.all.rTest_N-Test.xml.1456834530.197545.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2016', '--month=3', '--day=1', '--configFile=/usr/local/csep/cronjobs/dispatcher_ANSS1985_one_day.init.xml', '--waitingPeriod=31', '--enableForecastXMLTemplate', '--enableForecastCompression', '--enableForecastMap', '--publishServer=csep-usc@cseppublishing.usc.edu', '--publishDirectory=/export/cseppublishing/csep/us/results/data/us/usc/california', '--logFile=/home/csep/operations/dispatcher/logs/2016_3/dailyANSS1985_2016-3-1-040501', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2016_03/20160301040503/pid_6208', 'runtimeTestDate=2016-01-30'] = string
+
+CreationDateTime = 2016-03-01T04:15:30 = time
+
+FileFormat = XML = string
+
+FileDescription = RELMTest N evaluation test summary for all models of the /home/csep/operations/SCEC-natural-laboratory/one-day-models forecast group = string
+

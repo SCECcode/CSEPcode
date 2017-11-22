@@ -1,0 +1,11 @@
+# L-Test_ETAS-8-1-2007-fromXML-randomSeed
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.L-Test_ETAS-8-1-2007-fromXML-randomSeed.1199857370.048284.1 = string
+
+ProducedBy = ['/home/csep/operations/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--configFile=/home/csep/operations/csep/cronjobs/dispatcher_daily.init.xml', '--waitingPeriod=0', '--disableMatlabDisplay', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc', '--logFile=/home/csep/operations/dispatcher/logs/reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/20080108170901', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2008-01-08T21:42:54 = time
+
+FileFormat = ASCII = string
+
+FileDescription = Directory with random seed files 'L-Test_ETAS-8-1-2007-fromXML-randomSeed' used by evaluation test in 'ASCII' format. = string
+

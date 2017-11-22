@@ -1,0 +1,11 @@
+# rTest_L-Test_STEP-8-1-2007-fromXML.mat
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.rTest_L-Test_STEP-8-1-2007-fromXML.mat.1199857377.907646.1 = string
+
+ProducedBy = ['/home/csep/operations/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--configFile=/home/csep/operations/csep/cronjobs/dispatcher_daily.init.xml', '--waitingPeriod=0', '--disableMatlabDisplay', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc', '--logFile=/home/csep/operations/dispatcher/logs/reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/20080108170901', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2008-01-08T21:42:57 = time
+
+FileFormat = Matlab = string
+
+FileDescription = Evaluation test result file 'rTest_L-Test_STEP-8-1-2007-fromXML.mat' in Matlab format. = string
+

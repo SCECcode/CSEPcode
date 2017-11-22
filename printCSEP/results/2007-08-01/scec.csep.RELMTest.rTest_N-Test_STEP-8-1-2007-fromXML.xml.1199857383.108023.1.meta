@@ -1,0 +1,11 @@
+# rTest_N-Test_STEP-8-1-2007-fromXML.xml
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.rTest_N-Test_STEP-8-1-2007-fromXML.xml.1199857383.108023.1 = string
+
+ProducedBy = ['/home/csep/operations/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--configFile=/home/csep/operations/csep/cronjobs/dispatcher_daily.init.xml', '--waitingPeriod=0', '--disableMatlabDisplay', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc', '--logFile=/home/csep/operations/dispatcher/logs/reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/20080108170901', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2008-01-08T21:43:03 = time
+
+FileFormat = XML = string
+
+FileDescription = Evaluation test result file 'rTest_N-Test_STEP-8-1-2007-fromXML.xml' in XML format. = string
+

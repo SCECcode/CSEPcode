@@ -1,0 +1,11 @@
+# /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/rTest_L-Test_ETAS-8-1-2007-fromXML.svg
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.rTest_L-Test_ETAS-8-1-2007-fromXML.svg.1199857377.393241.1 = string
+
+ProducedBy = ['/home/csep/operations/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--configFile=/home/csep/operations/csep/cronjobs/dispatcher_daily.init.xml', '--waitingPeriod=0', '--disableMatlabDisplay', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc', '--logFile=/home/csep/operations/dispatcher/logs/reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/20080108170901', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2008-01-08T21:42:57 = time
+
+FileFormat = SVG = string
+
+FileDescription = Plot for evaluation test result file 'scec.csep.RELMTest.rTest_L-Test_ETAS-8-1-2007-fromXML.xml.1199857377.087660.1' in 'SVG' format. = string
+

@@ -1,0 +1,11 @@
+# /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/rTest_R-Test_STEP_8_1_2007-fromXML_ETAS_8_1_2007-fromXML.svg
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.rTest_R-Test_STEP_8_1_2007-fromXML_ETAS_8_1_2007-fromXML.svg.1246927080.659350.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--disableRawDataDownload', '--waitingPeriod=0', '--enableForecastXMLTemplate', '--disableExistingDataStaging', '--publishServer=csep-usc@cseptesting.org', '--disableMatlabDisplay', '--enableForecastMap', '--tests=N L R', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc/california', '--configFile=/home/csep/operations/reprocess/csep_9_4_2/dispatcher_one_day.init.xml', '--logFile=/home/csep/operations/dispatcher/logs/batch_reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2009_07/20090706152834', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2009-07-06T17:38:00 = time
+
+FileFormat = SVG = string
+
+FileDescription = Plot for RELMTest R evaluation test result file 'scec.csep.RELMTest.rTest_R-Test_STEP_8_1_2007-fromXML_ETAS_8_1_2007-fromXML.xml.1246927077.062125.1'. = string
+

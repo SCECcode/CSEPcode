@@ -1,0 +1,11 @@
+# Map_ETAS_8_1_2007.png
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2007-08-01/scec.csep.RELMTest.Map_ETAS_8_1_2007.png.1214938806.141887.1 = string
+
+ProducedBy = ['/home/csep/operations/csep/src/generic/Dispatcher.py', '--year=2007', '--month=8', '--day=1', '--waitingPeriod=0', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc/california', '--disableMatlabDisplay', '--enableForecastMap', '--configFile=/home/csep/operations/reprocess/dispatcher_daily.init.xml', '--logFile=/home/csep/operations/dispatcher/logs/batch_reprocess_daily_2007-8-1', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/20080701110314', 'runtimeTestDate=2007-08-01'] = string
+
+CreationDateTime = 2008-07-01T12:00:06 = time
+
+FileFormat = PNG = string
+
+FileDescription = Forecast map file  'Map_ETAS_8_1_2007.png' in PNG format. = string
+

@@ -59,7 +59,8 @@ def find_testresult_files(test_result_list, test_result_name):
             #
             tr = find_ntest_result_file_name(tr, test_result_name)
             if tr.status == tr.RESDIR_FOUND:
-                pass #print "Result File Name lookup - succeeded:", tr.testDate, tr.status, tr.test_result_file_name,tr.result_file_template
+                pass #
+                print "Result File Name lookup - succeeded:", tr.testDate, tr.status, tr.test_result_file_name,tr.result_file_template
             else:
                 pass #print "Result File Name lookup - failed:",tr.testDate,tr.status,tr.test_result_file_name,tr.result_file_template
 

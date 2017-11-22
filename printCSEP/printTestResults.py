@@ -103,7 +103,7 @@ if __name__ == "__main__":
     #
     for x in test_result_list:
         if x.status == x.RESDIR_FOUND:
-            #print x.status, x.testDate,x.test_result_file_path
+            print x.status, x.testDate,x.test_result_file_path
             pass
         else:
             pass
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     for x in test_result_list:
         if x.status == x.RESFILE_FOUND:
             pass
-            #print x.testDate,x.status,x.test_result_file_name
+            print x.testDate,x.status,x.test_result_file_name
         else:
             pass
 

@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+R --no-save << EOT
+inputCatalog="/home/csep/operations/SCEC-natural-laboratory/one-day-models/observations/2017-03-03/2017-03-03catalog.nodecl.dat"
+inputForecast="/home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2017-03-03/shortETAS_3_3_2017-fromXML.dat.targz"
+forecastPeriodProportion=1.0
+magnitudeRange=c(3.95, 10)
+resultFile="/home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2017-03-03/dTest_RP-Test_ETAS_3_3_2017-fromXML_result.dat"
+source("/usr/local/csep/src/DiagnosticsTests/pearson_residuals.R")
+EOT

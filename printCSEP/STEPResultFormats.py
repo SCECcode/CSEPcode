@@ -50,11 +50,12 @@ def find_step_ntest_result(config,expected_result,result_datetime):
     # since essentially not checking is done in the code the the report timezones are contigous
     # and don't overlap
     #
-    if res_datetime > report_start_datetime and res_datetime < report_end_datetime:
+    if res_datetime >= report_start_datetime and res_datetime <= report_end_datetime:
         expected_result = read_step_ntest_format_1(config,expected_result)
-    elif res_datetime > report2_start_datetime and res_datetime < report2_end_datetime:
+    elif res_datetime >= report2_start_datetime and res_datetime <= report2_end_datetime:
         expected_result = read_step_ntest_format_2(config,expected_result)
     else:
+        print "No parser due to datetime format issues",res_datetime,report2_end_datetime
         expected_result.status = ResultStatus.PARSER_NOT_FOUND
 
     return expected_result
@@ -84,10 +85,11 @@ def read_step_ntest_format_1(config, expected_result):
     #
     step_ntest_result_name = config["STEP"]["step_ntest_result_name"]
 
-    expected_result = find_step_ntest_result_file_name(expected_result,
+    expected_result = find_step_ntest_result_file_name1(expected_result,
                                                        step_ntest_result_name.replace('"',''))
 
     if expected_result.status == ResultStatus.FILE_NOT_FOUND:
+        print "File not found by step_ntest method"
         return expected_result
 
     #print "Ready to read xml file",expected_result.test_result_file_name
@@ -152,7 +154,7 @@ def read_step_ntest_format_1(config, expected_result):
     return expected_result
 
 
-def find_step_ntest_result_file_name(expected_result,test_result_name):
+def find_step_ntest_result_file_name1(expected_result,test_result_name):
      """
      input directory name
      processing:
@@ -237,13 +239,15 @@ def read_step_ntest_format_2(config,expected_result):
     """
     This finds the step_ntest files in the first format saved by CSEP
     """
+    #print "Processing step ntest format 2"
     step_ntest_result_file_path = config["STEP"]["step_ntest_result_file_path"]
 
     expected_result.test_result_file_path = step_ntest_result_file_path.replace('"','') + "/" + \
                                             expected_result.resultDateTime
 
-    #print expected_result.test_result_file_path
-
+    #
+    # Check if results directory exists, if not return immediately
+    #
     if not os.path.isdir(expected_result.test_result_file_path):
         expected_result.status = ResultStatus.DIR_NOT_FOUND
         return expected_result
@@ -254,26 +258,25 @@ def read_step_ntest_format_2(config,expected_result):
     # Retrieve the ntest string from config file
     #
     step_ntest_result_name = config["STEP"]["step_ntest_result_name"]
-
-    expected_result = find_step_ntest_result_file_name(expected_result,
-                                                       step_ntest_result_name.replace('"',''))
-
-    if expected_result.status == ResultStatus.FILE_NOT_FOUND:
-        return expected_result
-
+    step_ntest_result_name = step_ntest_result_name.replace('"','')
 
     #
     # Retrieve the XML Tag used in the file format, strip quotes from string
     #
-    xml_test_name = config["STEP"]["step_ntest_xml_tag_name"]
-    xml_test_name = xml_test_name.replace('"','')
+    xml_tag_name = config["STEP"]["step_ntest_xml_tag_name"]
+    xml_tag_name = xml_tag_name.replace('"','')
 
     #
     # Construct file pathname
     #
     result_file_template = "%s/scec.csep.AllModelsSummary.all.rTest_%s.xml.*"%(expected_result.test_result_file_path,
                                                                                step_ntest_result_name)
+    #print "Result file template:",result_file_template
     names = glob.glob(result_file_template)
+    if len(names) < 1:
+        expected_result.status = ResultStatus.FILE_NOT_FOUND
+        return expected_result
+
     for name in names:
         #
         # this takes the first file found that matches the tempalte
@@ -296,7 +299,7 @@ def read_step_ntest_format_2(config,expected_result):
     expected_result.number_of_testfile_matches = len(expected_result.list_of_testfile_matches)
     selected_file = expected_result.test_result_file_path + "/" + expected_result.test_result_file_name
 
-    if not os.path.exists(selected_file):
+    if not os.path.isfile(selected_file):
         print "Found test result file name, but does not exist",selected_file
         expected_result.status = ResultStatus.FILE_NOT_FOUND
         return expected_result
@@ -309,6 +312,7 @@ def read_step_ntest_format_2(config,expected_result):
     #
     #
     #
+    #print "parsing path:",a_path
     tree = ET.parse(a_path)
     root = tree.getroot()
     root_tag_base = root.tag.split("}")
@@ -319,7 +323,7 @@ def read_step_ntest_format_2(config,expected_result):
     else:
         for child in root:
             newres = child.tag.split("}")
-            if xml_test_name == newres[1]:
+            if xml_tag_name == newres[1]:
                 for nchild in child:
                     res = nchild.tag.split("}") # Split path from attrib name
                     if "name" == res[1]:

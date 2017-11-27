@@ -1,0 +1,11 @@
+# CL-Test_ETAS_3_3_2017-fromXML-randomSeed
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2017-03-03/scec.csep.RELMTest.CL-Test_ETAS_3_3_2017-fromXML-randomSeed.1494344021.125382.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2017', '--month=4', '--day=3', '--configFile=/usr/local/csep/cronjobs/dispatcher_ANSS1985_one_day.init.xml', '--waitingPeriod=31', '--enableForecastXMLTemplate', '--enableForecastCompression', '--enableForecastMap', '--logFile=/home/csep/operations/dispatcher/logs/2017_4/reprocessed_dailyANSS1985_2017-4-3-080534', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2017_05/20170509080539/pid_10433', 'runtimeTestDate=2017-03-03'] = string
+
+CreationDateTime = 2017-05-09T08:33:42 = time
+
+FileFormat = TARGZ = string
+
+FileDescription = Directory with random seed files used by evaluation test  'CL-Test_ETAS_3_3_2017-fromXML-randomSeed' in TARGZ format. = string
+

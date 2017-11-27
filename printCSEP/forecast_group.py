@@ -124,8 +124,6 @@ if __name__ == "__main__":
                     fg_results.append(test_result)
 
 
-    #print "All %d expected results processed for forecast group: %s"%(len(fg_results),my_forecast_group_name)
-
     #
     # One or more reports can be generated about this format group using
     # configuration items in the forecast_group_report.cfg file

@@ -26,7 +26,7 @@ def report(report_type,fg_results,report_start_datetime,report_end_datetime):
     # Currently defined reports in ReportTypes.py
     # report_names = "All,Success,Errors,Summary"
     #
-    print "-------------- ReportType: %s -------------------"%(report_type)
+    print "#------------- ReportType: %s -------------------"%(report_type)
 
     forecast_group_report_header(fg_results,
                                  report_start_datetime,
@@ -106,17 +106,14 @@ def printAllRowStatus(fg_results):
 
 
 def printFoundResults(fg_results):
-    for testResult in fg_results:
-        """
-        Pass in name of test: Eg. NTest
-        prints only if one entry or more is in list
-        Does a check to confirm
-        """
-        good_results = 0
-        for result in fg_results:
-            if result.status == ResultStatus.SUCCESS:
-                good_results += 1
 
+    good_results = 0
+    for testResult in fg_results:
+	if testResult.status == ResultStatus.SUCCESS:
+		good_results += 1
+    print "#number_of_found_results: %d"%(good_results)
+    print "#resultDate,modelName,eventCount,delta1,delta2,eventCountForecast"
+    for testResult in fg_results:
         if testResult.status == ResultStatus.SUCCESS:
             res = "%s," % (testResult.resultDateTime) + \
                 "%s," % (testResult.model_name) + \

@@ -66,6 +66,14 @@ is expected result directory found?
 are expected result files found?
 are expected test results found in file?
 
+## Results directory Contents
+2007-08-01 - ntest_format_1 results
+2010-03-01 - last format 1 result
+2010-07-05 - missing results file
+2010-11-22 - example of format 2 results (with STEP and ETAS tags)
+2012-05-28 - no result file found
+2016-01-30 - missing step results in format 2 (ETAS only)
+2017-03-03 - missing step results in format 2 (ETAS only)
 
 
 

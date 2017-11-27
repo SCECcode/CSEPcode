@@ -16,7 +16,7 @@ def get_result_data(expected_result,
     elif model_name == "ETAS" and test_name == "N":
         expected_result = ETASResultFormats.find_etas_ntest_result(config,expected_result,result_datetime)
     else:
-        print "Unexpected method %s and test %s"%(model_name,test_name)
+        print "Unexpected model_name: %s and test_name: %s"%(model_name,test_name)
         expected_result.status = ResultStatus.PARSER_NOT_FOUND
 
     return expected_result

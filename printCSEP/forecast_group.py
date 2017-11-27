@@ -5,19 +5,28 @@
     Date created: 11/05/2017
     Date last modified: 11/05/2017
 
-    Inputs: CSEP Test results directory
-    Input a forecast group report specification:
-    forecast_group_name: one_day_models
-    model_names: ETAS,STEP
-    evaluation_names: N,T
+    This is the main program for the CSEP result processing scripts.
 
-    start_date: (start_year, start_month, start_day)
-    end_date: (end_year,end_month, end_day)
+    Usage:
+    $./forecast_group.py
+
+    Inputs:
+    Platform and report spectific inputs to program are defined in file: forecast_group_report.cfg
+    This file contains specific configuration paramaters used to define the report
+    of interest. A CSEP result report specification configuration file include:
+
+        forecast_group_name: one_day_models
+        model_names: ETAS,STEP
+        test_names: N,T
+
+        report_start_date: (start_year, start_month, start_day)
+        report_end_date: (end_year,end_month, end_day)
+        path_to_CSEP_results: /home/csep/operations/results
 
 
     Outputs:
         Report module gives various output formats
-        including all results, all success, all failuers, counts
+        including all,success,errors,summary counts
         CSEP Test results file in csv format
         Results are printed to stdout and can be collected gen_fg_reportgen_fg_report.py > results.csv
 
@@ -102,7 +111,13 @@ if __name__ == "__main__":
 
     #
     # Look for each expected result in filesystem and
-    # assign a status to each result for later reports
+    # assign a status to each result for later reports.
+    # This processes through the expected results, from oldest to latest
+    # For each result, it checks each model, and for each model, it checks each test
+    # when it gets to a specific expected result, it calls get_result_data to find
+    # it on the filesystem. All successfully retrieved results are returned
+    # in the TestResult object. This object also includes path to file
+    # where the result was found.
     #
     for my_datetime in result_datetime_list:
         for my_forecast_group_name in forecast_group_name_list:

@@ -23,7 +23,7 @@
 
 '''
 import sys
-import configparser
+import ConfigParser
 import datetime
 import findResultDateTimes
 import TestResult
@@ -57,31 +57,31 @@ if __name__ == "__main__":
     #
     # Define User Inputs - Read from forecast_groupfg_report.cfg file
     #
-    config = configparser.ConfigParser()
+    config = ConfigParser.SafeConfigParser()
     config.read("forecast_group_report.cfg")
 
-    forecast_group_names = config["CSEP_FG_REPORT"]["forecast_group_names"]
+    forecast_group_names = config.get("CSEP_FG_REPORT","forecast_group_names")
     forecast_group_name_list = forecast_group_names.replace('"','').split(",")
     #print "Number of forecast_groups:", len(forecast_group_name_list)
 
-    model_names = config["CSEP_FG_REPORT"]["model_names"]
+    model_names = config.get("CSEP_FG_REPORT","model_names")
     model_name_list = model_names.replace('"','').split(",")
     #print "Number of model_names", len(model_name_list)
 
-    test_names = config["CSEP_FG_REPORT"]["test_names"]
+    test_names = config.get("CSEP_FG_REPORT","test_names")
     test_name_list = test_names.replace('"','').split(",")
     #print "Number of tests",len(test_name_list)
 
-    report_names = config["CSEP_FG_REPORT"]["report_names"]
+    report_names = config.get("CSEP_FG_REPORT","report_names")
     report_name_list = report_names.replace('"','').split(",")
     #print "Number of reports",len(report_name_list)
 
-    forecast_start_year = int(config["CSEP_FG_REPORT"]["forecast_start_year"])
-    forecast_start_month = int(config["CSEP_FG_REPORT"]["forecast_start_month"])
-    forecast_start_day = int(config["CSEP_FG_REPORT"]["forecast_start_day"])
-    forecast_end_year = int(config["CSEP_FG_REPORT"]["forecast_end_year"])
-    forecast_end_month = int(config["CSEP_FG_REPORT"]["forecast_end_month"])
-    forecast_end_day = int(config["CSEP_FG_REPORT"]["forecast_end_day"])
+    forecast_start_year = int(config.get("CSEP_FG_REPORT","forecast_start_year"))
+    forecast_start_month = int(config.get("CSEP_FG_REPORT","forecast_start_month"))
+    forecast_start_day = int(config.get("CSEP_FG_REPORT","forecast_start_day"))
+    forecast_end_year = int(config.get("CSEP_FG_REPORT","forecast_end_year"))
+    forecast_end_month = int(config.get("CSEP_FG_REPORT","forecast_end_month"))
+    forecast_end_day = int(config.get("CSEP_FG_REPORT","forecast_end_day"))
 
     #
     # Convert the start and end times to datetimes

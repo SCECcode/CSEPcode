@@ -19,10 +19,10 @@ def find_etas_ntest_result(config,expected_result,result_datetime):
     # This method directs the step ntest into time zones, and calls the right
     # parsing method based on the resultDateTime
     #
-    etas_ntest_format_1_starttime = config["ETAS"]["etas_ntest_format_1_starttime"]
-    etas_ntest_format_1_endtime = config["ETAS"]["etas_ntest_format_1_endtime"]
-    etas_ntest_format_2_starttime = config["ETAS"]["etas_ntest_format_2_starttime"]
-    etas_ntest_format_2_endtime = config["ETAS"]["etas_ntest_format_2_endtime"]
+    etas_ntest_format_1_starttime = config.get("ETAS","etas_ntest_format_1_starttime")
+    etas_ntest_format_1_endtime = config.get("ETAS","etas_ntest_format_1_endtime")
+    etas_ntest_format_2_starttime = config.get("ETAS","etas_ntest_format_2_starttime")
+    etas_ntest_format_2_endtime = config.get("ETAS","etas_ntest_format_2_endtime")
 
     #
     # Create datetime object from datetime string
@@ -67,7 +67,7 @@ def read_etas_ntest_format_1(config, expected_result):
     """
     This finds the step_ntest files in the first format saved by CSEP
     """
-    etas_ntest_result_file_path = config["ETAS"]["etas_ntest_result_file_path"]
+    etas_ntest_result_file_path = config.get("ETAS","etas_ntest_result_file_path")
 
     expected_result.test_result_file_path = etas_ntest_result_file_path.replace('"','') + "/" + \
                                             expected_result.resultDateTime
@@ -83,7 +83,7 @@ def read_etas_ntest_format_1(config, expected_result):
     #
     # Retrieve the ntest string from config file
     #
-    etas_ntest_result_name = config["ETAS"]["etas_ntest_result_name"]
+    etas_ntest_result_name = config.get("ETAS","etas_ntest_result_name")
 
     expected_result = find_etas_ntest_result_file_name1(expected_result,
                                                        etas_ntest_result_name.replace('"',''))
@@ -240,7 +240,7 @@ def read_etas_ntest_format_2(config,expected_result):
     This finds the step_ntest files in the first format saved by CSEP
     """
     #print "Processing step ntest format 2"
-    etas_ntest_result_file_path = config["ETAS"]["etas_ntest_result_file_path"]
+    etas_ntest_result_file_path = config.get("ETAS","etas_ntest_result_file_path")
 
     expected_result.test_result_file_path = etas_ntest_result_file_path.replace('"','') + "/" + \
                                             expected_result.resultDateTime
@@ -257,13 +257,13 @@ def read_etas_ntest_format_2(config,expected_result):
     #
     # Retrieve the ntest string from config file
     #
-    etas_ntest_result_name = config["ETAS"]["etas_ntest_result_name"]
+    etas_ntest_result_name = config.get("ETAS","etas_ntest_result_name")
     etas_ntest_result_name = etas_ntest_result_name.replace('"','')
 
     #
     # Retrieve the XML Tag used in the file format, strip quotes from string
     #
-    xml_tag_name = config["ETAS"]["etas_ntest_xml_tag_name"]
+    xml_tag_name = config.get("ETAS","etas_ntest_xml_tag_name")
     xml_tag_name = xml_tag_name.replace('"','')
 
     #

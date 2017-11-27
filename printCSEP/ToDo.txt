@@ -6,4 +6,15 @@ Update the TestResult print method to give a full object report, including path 
 
 add the model_names, and test_names to the standard header
 
+Figure out whay aug 1 to aug 5 does not include aug 5 in the processing.
+
+Document example results:
+2007-08-01 - ntest_format_1 results
+2010-03-01 - last format 1 result
+2010-07-05 - missing results file
+2010-11-22 - example of format 2 results (with ETAS onlye)
+2012-05-28 - no result file found
+2016-01-20 - missing step results in format 2
+2017-03-03 - missing step results in format 2
+
 """

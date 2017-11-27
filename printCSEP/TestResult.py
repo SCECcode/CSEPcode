@@ -1,26 +1,13 @@
+import ResultStatus
+import Constants
+import ResultFinder
 class TestResult(object):
     """
-    Define TestResult constants
+    Define TestResult object.
+    This object should support multiple result types including
+    different test_types and different model_types
     """
 
-    #
-    # Define a series of processing states
-    # that the program goes through when locating results
-    # for a given time period.
-    #
-    SCHEDULED = "Test Scheduled"
-    RESDIR_FOUND = "Result Directory Found"
-    RESDIR_NOTFOUND = "No Result Directory Found"
-    RESFILE_FOUND = "Result File Found"
-    RESFILE_NOTFOUND = "No Result File Found"
-    RESFILE_OK = "Result File Ok"
-    RESFILE_ERROR = "Result File Error"
-
-    #
-    # Define a single default value for all float
-    # numbers. Strings default to empty string
-    #
-    default_invalid_data_value = -99999.0
 
     #
     # Initial new TestResult Objects with null strings
@@ -30,42 +17,46 @@ class TestResult(object):
         #
         # Status Info about the object inputs and parsed results
         #
-        self.status = ""
-        self.result_file_template = ""
-        self.list_of_testfile_matches = []
-        self.testresult_params = 0
-        self.number_of_matching_files = 0
-        #
-        # Parsed Info with default values
-        #
+        self.status = ResultStatus.INITIAL
+        self.softwareVersion =  ""
+        self.forecast_group_name = ""
+        self.test_name = ""
+        self.model_name = ""
         self.test_result_file_path = ""
         self.test_result_file_name = ""
-        self.modelname = ""
-        self.eventCount = self.default_invalid_data_value
-        self.delta1 = self.default_invalid_data_value
-        self.delta2 = self.default_invalid_data_value
-        self.eventCountForecast = self.default_invalid_data_value
-        self.testDate = ""
+        self.list_of_testfile_matches = []
+        self.number_of_testfile_matches = 0
+        self.resultDateTime = ""
+        self.processingDateTime = ""
         #
-        # Currently Not Used
+        # These values are the eventual payload that we retrieve from the
+        # current models under test
         #
-        self.td_CSEPVersion =  ""
-        self.td_creationTime = ""
-        self.td_forecastEndDate = ""
-        self.td_forecastStartDate = ""
+        self.eventCount = Constants.default_invalid_data_value
+        self.eventCountForecast = Constants.default_invalid_data_value
+        self.delta1 = Constants.default_invalid_data_value
+        self.delta2 = Constants.default_invalid_data_value
+
+
+    def get_result_data(self,config,expected_result):
+        expected_result = ResultFinder(expected_result,
+                                       config)
+        return expected_result
+
 
     #
     # Define method the prints these objects as a string.
     #
     def __str__(self):
         res = "\nresultStatus: %s\n"%(self.status) + \
-            "resultTemplate: %s\n"%(self.result_file_template) +\
-             "test_file_path: %s\n"%(self.test_result_file_path) + \
-            "test_result_file_name: %s\n"%(self.test_result_file_name) + \
-            "modelname: %s\n"%(self.modelname) + \
+            "softwareVesion: %s\n"%(self.softwareVersion) + \
+            "forecast_group_name: %s\n"%(self.forecast_group_name) +\
+             "model_name: %s\n"%(self.model_name) + \
+            "test_name: %s\n"%(self.test_name) + \
             "eventCount: %f\n"%(self.eventCount) + \
             "delta1: %f\n"%(self.delta1) + \
             "delta2: %f\n"%(self. delta2) + \
             "eventCountForecast: %f\n"%(self.eventCountForecast) + \
-            "testDate: %s\n"%(self.testDate)
+            "testDate: %s\n"%(self.resultDateTime) + \
+            "processingDate: %s\n"%(self.processingDateTime)
         return res

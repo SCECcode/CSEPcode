@@ -101,10 +101,7 @@ def printAllRowStatus(fg_results):
         Does a check to confirm
         """
         if testResult != None:
-            res = "%s," % (testResult.resultDateTime) + \
-                "%s," % (testResult.model_name) + \
-                "%s," % (testResult.status)
-            print res
+            print testResult # Use the intrinsic pring method.
         else:
             print "Found Null testResult:"
 

@@ -50,13 +50,21 @@ class TestResult(object):
     def __str__(self):
         res = "\nresultStatus: %s\n"%(self.status) + \
             "softwareVesion: %s\n"%(self.softwareVersion) + \
-            "forecast_group_name: %s\n"%(self.forecast_group_name) +\
-             "model_name: %s\n"%(self.model_name) + \
+            "processingDate: %s\n"%(self.processingDateTime) + \
+            "forecast_group_name: %s\n"%(self.forecast_group_name) + \
+            "model_name: %s\n"%(self.model_name) + \
             "test_name: %s\n"%(self.test_name) + \
+            "test_result_file_path: %s\n"%(self.test_result_file_path) + \
+            "test_result_file_name: %s\n"%(self.test_result_file_name) + \
+            "num_of_resultfile_matches: %d\n"% (len(self.list_of_testfile_matches)) + \
             "eventCount: %f\n"%(self.eventCount) + \
             "delta1: %f\n"%(self.delta1) + \
             "delta2: %f\n"%(self. delta2) + \
             "eventCountForecast: %f\n"%(self.eventCountForecast) + \
-            "testDate: %s\n"%(self.resultDateTime) + \
-            "processingDate: %s\n"%(self.processingDateTime)
+            "resultDateTime: %s\n"%(self.resultDateTime)
+
         return res
+
+
+
+#"number_of_testfile_matches: %s\n"(self.number_of_testfile_matches) + \

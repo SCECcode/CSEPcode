@@ -1,14 +1,16 @@
-##Overview of CSEP utility programs:
+## Overview of CSEP utility programs:
+This SCEC CSEP software repository is for utility programs written to support CSEP science activities including analysis of results.
 
-##Main Program Concepts:
+## Main Program Concepts:
+The printCSEP directory contains scripts for processing CSEP forecast evalation results.
 
-##Forecast group: One or more forecast models using the same inputs and running for the same time period
+## Forecast group: One or more forecast models using the same inputs and running for the same time period
 
-##Forecast model: ETAS, STEP, and others
+## Forecast model: ETAS, STEP, and others
 
-##test_name: N-test, R-Test
+## test_name: N-test, R-Test
 
-##Forecast result format:
+## Forecast result format:
 ntest_format_1
 start_time,end_time
 file template
@@ -18,11 +20,11 @@ start_time,end_time
 filename,
 xml_tag
 
-##scheduled_result
+## scheduled_result
 scheduled_result_datetime
 found_result_datetime
 
-##Basic Logic:
+## Basic Logic:
 Make an assumption that the same results are expected for all models in a forecast group.
 Then:
 
@@ -36,7 +38,7 @@ For each model in forecast group:
 for each scheduled_result:
 forecast_result = find_forecast_results(model_name,test_name,duration,forecast_result)
 
-##Basic Report Logic
+## Basic Report Logic
 for each scheduled_result:
   if result.status = SUCCESS
        print result.data

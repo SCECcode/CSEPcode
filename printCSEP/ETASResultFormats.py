@@ -94,7 +94,7 @@ def read_etas_ntest_format_1(config, expected_result):
                                                        etas_ntest_result_name.replace('"',''))
 
     if expected_result.status == ResultStatus.FILE_NOT_FOUND:
-        print "File not found by etas_ntest method"
+        #print "File not found by etas_ntest method"
         return expected_result
 
     #print "Ready to read xml file",expected_result.test_result_file_name

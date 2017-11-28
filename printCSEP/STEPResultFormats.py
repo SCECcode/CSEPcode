@@ -91,10 +91,10 @@ def read_step_ntest_format_1(config, expected_result):
     step_ntest_result_name = ntest_result_name
 
     expected_result = find_step_ntest_result_file_name1(expected_result,
-                                                       step_ntest_result_name.replace('"',''))
+                                                       step_ntest_result_name)
 
     if expected_result.status == ResultStatus.FILE_NOT_FOUND:
-        print "File not found by step_ntest method"
+        #print "File not found by step_ntest method",step_ntest_result_name
         return expected_result
 
     #print "Ready to read xml file",expected_result.test_result_file_name
@@ -231,7 +231,7 @@ def find_step_ntest_result_file_name1(expected_result,test_result_name):
      #print "selected result file:",selected_file
      if expected_result.status == ResultStatus.DATA_NOT_FOUND:
         #
-        # Check if file existss, if Not set status file not found
+        # Check if file exists, if Not set status file not found
         if not os.path.exists(selected_file):
             print "Found test result file name, but does not exist",selected_file
             expected_result.status = ResultStatus.FILE_NOT_FOUND
@@ -330,7 +330,7 @@ def read_step_ntest_format_2(config,expected_result):
                         if nchild.text == step_xml_tag:
                             expected_result.model_name = nchild.text
                         else:
-                            break;
+                            break
                     elif "eventCount" == res[1]:
                         expected_result.eventCount = float(nchild.text)
                     elif "delta1" == res[1]:

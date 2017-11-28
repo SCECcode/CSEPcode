@@ -1,0 +1,10 @@
+#!/bin/bash
+
+R --no-save << EOT
+inputCatalog="/home/csep/operations/SCEC-natural-laboratory/one-day-models/observations/2009-11-30/2009-11-30catalog.nodecl.dat"
+inputForecast="/home/csep/operations/SCEC-natural-laboratory/one-day-models/forecasts/ETAS_11_30_2009-fromXML.dat"
+forecastPeriodProportion=1.0
+alpha=0.05
+resultFile="/home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2009-11-30/dTest_LW-Test_ETAS_11_30_2009-fromXML_result.dat"
+source("/usr/local/csep/src/DiagnosticsTests/weighted_l_function.R")
+EOT

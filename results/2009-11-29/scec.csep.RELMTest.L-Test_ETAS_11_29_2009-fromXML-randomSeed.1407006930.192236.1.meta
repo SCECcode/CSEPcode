@@ -1,0 +1,11 @@
+# L-Test_ETAS_11_29_2009-fromXML-randomSeed
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2009-11-29/scec.csep.RELMTest.L-Test_ETAS_11_29_2009-fromXML-randomSeed.1407006930.192236.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2009', '--month=11', '--day=29', '--enableForecastMap', '--waitingPeriod=0', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseppublishing.usc.edu', '--publishDirectory=/export/cseppublishing/csep/us/results/data/us/usc/california', '--configFile=/home/csep/operations/reprocess/csep_14_4_0/dispatcher_ANSS1985.init.xml', '--logFile=/home/csep/operations/dispatcher/logs/batch_2014_8_1_CAOneDay_2009-11-29T0-0-0', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2014_08/20140802120422/pid_15107', 'runtimeTestDate=2009-11-29'] = string
+
+CreationDateTime = 2014-08-02T12:15:31 = time
+
+FileFormat = TARGZ = string
+
+FileDescription = Directory with random seed files used by evaluation test  'L-Test_ETAS_11_29_2009-fromXML-randomSeed' in TARGZ format. = string
+

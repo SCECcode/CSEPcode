@@ -1,0 +1,11 @@
+# rTest_S-Test_STEP_11_28_2009-fromXML.xml
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2009-11-28/scec.csep.RELMTest.rTest_S-Test_STEP_11_28_2009-fromXML.xml.1262088506.726943.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2009', '--month=12', '--day=29', '--configFile=/usr/local/csep/cronjobs/dispatcher_ANSS1985.init.xml', '--waitingPeriod=31', '--disableMatlabDisplay', '--enableForecastXMLTemplate', '--enableForecastMap', '--publishServer=csep-usc@cseptesting.org', '--publishDirectory=/var/www/html/csep/us/results/data/us/usc/california', '--logFile=/home/csep/operations/dispatcher/logs/2009_12/dailyANSS1985_2009-12-29-000001', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2009_12/20091229000004/pid_4858', 'runtimeTestDate=2009-11-28'] = string
+
+CreationDateTime = 2009-12-29T04:05:06 = time
+
+FileFormat = XML = string
+
+FileDescription = RELMTest S evaluation test result file 'rTest_S-Test_STEP_11_28_2009-fromXML.xml' in XML format. = string
+

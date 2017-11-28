@@ -1,0 +1,11 @@
+# /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2009-11-30/all.rTest_M-Test.png
+DataFilename = /home/csep/operations/SCEC-natural-laboratory/one-day-models/results/2009-11-30/scec.csep.AllModelsSummary.all.rTest_M-Test.png.1407010062.849954.1 = string
+
+ProducedBy = ['/usr/local/csep/src/generic/Dispatcher.py', '--year=2009', '--month=11', '--day=30', '--enableForecastMap', '--waitingPeriod=0', '--enableForecastXMLTemplate', '--publishServer=csep-usc@cseppublishing.usc.edu', '--publishDirectory=/export/cseppublishing/csep/us/results/data/us/usc/california', '--configFile=/home/csep/operations/reprocess/csep_14_4_0/dispatcher_ANSS1985.init.xml', '--logFile=/home/csep/operations/dispatcher/logs/batch_2014_8_1_CAOneDay_2009-11-30T0-0-0', 'runtimeDirectory=/home/csep/operations/dispatcher/runs/csep/2014_08/20140802125620/pid_18542', 'runtimeTestDate=2009-11-30'] = string
+
+CreationDateTime = 2014-08-02T13:07:42 = time
+
+FileFormat = PNG = string
+
+FileDescription = Plot for RELMTest M evaluation test summary for all models of /home/csep/operations/SCEC-natural-laboratory/one-day-models forecast group = string
+

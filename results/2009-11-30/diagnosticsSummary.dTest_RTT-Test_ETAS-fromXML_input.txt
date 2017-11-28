@@ -1,0 +1,11 @@
+#!/bin/bash
+
+R --no-save << EOT
+inputForecast="/home/csep/operations/SCEC-natural-laboratory/one-day-models/forecasts/ETAS_11_30_2009-fromXML.dat"
+kValue=46700.0
+forecastPeriodProportion=1.0
+alpha=0.05
+resultFile="/home/csep/operations/SCEC-natural-laboratory/one-day-models/results/diagnosticsSummary.dTest_RTT-Test_ETAS-fromXML.dat"
+inputResiduals="/home/csep/operations/SCEC-natural-laboratory/one-day-models/results/diagnosticsSummary.dTest_RT-Test_ETAS-fromXML.dat"
+source("/usr/local/csep/src/DiagnosticsTests/superthinned_residuals_testing.R")
+EOT

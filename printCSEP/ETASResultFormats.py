@@ -11,6 +11,11 @@ import xml.etree.ElementTree as ET
 format_1_root_tag_name = "CSEPResult"
 format_2_root_tag_name = "CSEPAllModelsSummary"
 
+ntest_xml_tag_name = "NTest"
+ntest_result_name = "N-Test"
+
+etas_xml_tag = "ETAS-fromXML"
+
 #
 # This top level method, calls the appropriate detailed processing methods, defined below
 #
@@ -81,9 +86,9 @@ def read_etas_ntest_format_1(config, expected_result):
         expected_result.status = ResultStatus.FILE_NOT_FOUND
 
     #
-    # Retrieve the ntest string from config file
+    # Retrieve the ntest string from Global definitions above
     #
-    etas_ntest_result_name = config.get("ETAS","etas_ntest_result_name")
+    etas_ntest_result_name = ntest_result_name
 
     expected_result = find_etas_ntest_result_file_name1(expected_result,
                                                        etas_ntest_result_name.replace('"',''))
@@ -255,16 +260,10 @@ def read_etas_ntest_format_2(config,expected_result):
         expected_result.status = ResultStatus.FILE_NOT_FOUND
 
     #
-    # Retrieve the ntest string from config file
+    # Retrieve the ntest string from Global Definitions above
     #
-    etas_ntest_result_name = config.get("ETAS","etas_ntest_result_name")
-    etas_ntest_result_name = etas_ntest_result_name.replace('"','')
-
-    #
-    # Retrieve the XML Tag used in the file format, strip quotes from string
-    #
-    xml_tag_name = config.get("ETAS","etas_ntest_xml_tag_name")
-    xml_tag_name = xml_tag_name.replace('"','')
+    etas_ntest_result_name = ntest_result_name
+    xml_tag_name = ntest_xml_tag_name
 
     #
     # Construct file pathname
@@ -323,11 +322,14 @@ def read_etas_ntest_format_2(config,expected_result):
     else:
         for child in root:
             newres = child.tag.split("}")
-            if xml_tag_name == newres[1]:
+            if xml_tag_name == newres[1]: # Match against NTest string
                 for nchild in child:
                     res = nchild.tag.split("}") # Split path from attrib name
                     if "name" == res[1]:
-                        expected_result.model_name = nchild.text
+                        if nchild.text == etas_xml_tag:
+                            expected_result.model_name = nchild.text
+                        else:
+                            break
                     elif "eventCount" == res[1]:
                         expected_result.eventCount = float(nchild.text)
                     elif "delta1" == res[1]:
@@ -343,5 +345,12 @@ def read_etas_ntest_format_2(config,expected_result):
             else:
                 print "Found unexpected child tag:","NTest",child.tag
 
-    expected_result.status = ResultStatus.SUCCESS
+    #
+    # Return NO DATA FOUND if XML Tag missing
+    #
+    if expected_result.model_name == etas_xml_tag:
+        expected_result.status = ResultStatus.SUCCESS
+    else:
+        expected_result.status = ResultStatus.DATA_NOT_FOUND
+
     return expected_result

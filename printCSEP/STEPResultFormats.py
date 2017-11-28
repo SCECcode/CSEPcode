@@ -11,6 +11,11 @@ import xml.etree.ElementTree as ET
 format_1_root_tag_name = "CSEPResult"
 format_2_root_tag_name = "CSEPAllModelsSummary"
 
+ntest_xml_tag_name = "NTest"
+ntest_result_name = "N-Test"
+
+step_xml_tag = "STEP-fromXML"
+
 #
 # This top level method, calls the appropriate detailed processing methods, defined below
 #
@@ -83,7 +88,7 @@ def read_step_ntest_format_1(config, expected_result):
     #
     # Retrieve the ntest string from config file
     #
-    step_ntest_result_name = config.get("STEP","step_ntest_result_name")
+    step_ntest_result_name = ntest_result_name
 
     expected_result = find_step_ntest_result_file_name1(expected_result,
                                                        step_ntest_result_name.replace('"',''))
@@ -197,6 +202,7 @@ def find_step_ntest_result_file_name1(expected_result,test_result_name):
              expected_result.status = ResultStatus.DATA_NOT_FOUND
          else:
              print "Ntest template search returned null file"
+             expected_result.status = ResultStatus.FILE_NOT_FOUND
      elif len(names) > 0:
          for name in names:
              #
@@ -255,16 +261,10 @@ def read_step_ntest_format_2(config,expected_result):
         expected_result.status = ResultStatus.FILE_NOT_FOUND
 
     #
-    # Retrieve the ntest string from config file
+    # Retrieve the ntest string from global definitions above
     #
-    step_ntest_result_name = config.get("STEP","step_ntest_result_name")
-    step_ntest_result_name = step_ntest_result_name.replace('"','')
-
-    #
-    # Retrieve the XML Tag used in the file format, strip quotes from string
-    #
-    xml_tag_name = config.get("STEP","step_ntest_xml_tag_name")
-    xml_tag_name = xml_tag_name.replace('"','')
+    step_ntest_result_name = ntest_result_name
+    xml_tag_name = ntest_xml_tag_name
 
     #
     # Construct file pathname
@@ -323,11 +323,14 @@ def read_step_ntest_format_2(config,expected_result):
     else:
         for child in root:
             newres = child.tag.split("}")
-            if xml_tag_name == newres[1]:
+            if xml_tag_name == newres[1]: #This Matches NTest Tag
                 for nchild in child:
                     res = nchild.tag.split("}") # Split path from attrib name
                     if "name" == res[1]:
-                        expected_result.model_name = nchild.text
+                        if nchild.text == step_xml_tag:
+                            expected_result.model_name = nchild.text
+                        else:
+                            break;
                     elif "eventCount" == res[1]:
                         expected_result.eventCount = float(nchild.text)
                     elif "delta1" == res[1]:
@@ -342,6 +345,12 @@ def read_step_ntest_format_2(config,expected_result):
                         print "Found Unexpected Test Type",nchild.tag
             else:
                 print "Found unexpected child tag:","NTest",child.tag
+    #
+    # Return DATA_NOT_FOUND if one of the tags is not found
+    #
+    if expected_result.model_name == step_xml_tag:
+        expected_result.status = ResultStatus.SUCCESS
+    else:
+        expected_result.status = ResultStatus.DATA_NOT_FOUND
 
-    expected_result.status = ResultStatus.SUCCESS
     return expected_result

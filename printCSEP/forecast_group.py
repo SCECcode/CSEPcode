@@ -148,7 +148,9 @@ if __name__ == "__main__":
         OutputFormat.report(report,
                             fg_results,
                             report_start_datetime,
-                            report_end_datetime)
+                            report_end_datetime,
+                            model_names,
+                            test_names)
 
     #
     # Exit Success

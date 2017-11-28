@@ -3,12 +3,14 @@ import ReportTypes
 import datetime
 import ResultStatus
 
-def forecast_group_report_header(fg_results,report_start_datetime,report_end_datetime):
+def forecast_group_report_header(fg_results,report_start_datetime,report_end_datetime,modelnames,testnames):
     """
     print information common to the forecast group and the report
     """
     if len(fg_results) > 0:
         print "#forecastGroupName: %s" % (fg_results[0].forecast_group_name)
+        print "#modelNames: %s" %(modelnames)
+        print "#testNames: %s" % (testnames)
         print "#reportStartDate: %4d-%02d-%02d" % (report_start_datetime.year,
                                                     report_start_datetime.month,
                                                     report_start_datetime.day)
@@ -21,7 +23,7 @@ def forecast_group_report_header(fg_results,report_start_datetime,report_end_dat
         print "#number_of_expected_results: %d"%(len(fg_results))
 
 
-def report(report_type,fg_results,report_start_datetime,report_end_datetime):
+def report(report_type,fg_results,report_start_datetime,report_end_datetime,modelnames,testnames):
     #
     # Currently defined reports in ReportTypes.py
     # report_names = "All,Success,Errors,Summary"
@@ -30,7 +32,9 @@ def report(report_type,fg_results,report_start_datetime,report_end_datetime):
 
     forecast_group_report_header(fg_results,
                                  report_start_datetime,
-                                 report_end_datetime)
+                                 report_end_datetime,
+                                 modelnames,
+                                 testnames)
 
     if report_type == "All":
         printAllRowStatus(fg_results)
@@ -79,7 +83,7 @@ def printSummaryCounts(fg_results):
             n_dir_not_found + n_file_not_found + \
             n_data_not_found + n_success
 
-    print "#Summary of Expected Results: %d"%(n_total_expected)
+    print "#summary_of_expected_results: %d"%(n_total_expected)
     print "#Initial: %d"%(n_initial)
     print "#Parser Not Found: %d"%(n_parser_not_found)
     print "#Dir Not Found: %d"%(n_dir_not_found)

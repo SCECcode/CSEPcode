@@ -11,9 +11,9 @@ Edit the forecast_group_report.cfg file with a text editor.
 Define the forecast group of interest, the forecast models (e.g. STEP, ETAS), and the evalation tests (N,T), and
 a start_date and end_date. Reports can include all found data, missing data, or a combination of both.
 
-# Forecast group: One or more forecast models using the same inputs and running for the same time period
-# Forecast model: ETAS, STEP, and others
-# test_name: N-test, R-Test
+* Forecast group: One or more forecast models using the same inputs and running for the same time period
+* Forecast model: ETAS, STEP, and others
+* test_name: N-test, R-Test
 
 ## Basic Logic:
 If the same output reports are expected for all models in a forecast group.
@@ -41,7 +41,7 @@ to parse that model or test result.
 
 The source files affected if you add a new model or test include:
 
-#ResultFinder
+* ResultFinder
 
 This method tests for each combination of model and test and calls
 the correct processing methods. If you add a new model or test type
@@ -60,4 +60,3 @@ is in separate source code files.
 2012-05-28 - no result file found
 2016-01-30 - missing step results in format 2 (ETAS only)
 2017-03-03 - missing step results in format 2 (ETAS only)
-

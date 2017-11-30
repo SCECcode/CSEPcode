@@ -41,7 +41,7 @@ def report(report_type,fg_results,report_start_datetime,report_end_datetime,mode
     elif report_type == "Success":
         printFoundResults(fg_results)
     elif report_type == "Errors":
-        print "print All Errors"
+        printErrorResults(fg_results)
     elif report_type == "Summary":
         printSummaryCounts(fg_results)
     else:
@@ -101,7 +101,7 @@ def printAllRowStatus(fg_results):
         Does a check to confirm
         """
         if testResult != None:
-            print testResult # Use the intrinsic pring method.
+            print testResult # Use the intrinsic pring method for objects type TestResult.
         else:
             print "Found Null testResult:"
 
@@ -123,3 +123,16 @@ def printFoundResults(fg_results):
                 "%10.8f," % (testResult.delta2) + \
                 "%10.8f" % (testResult.eventCountForecast)
             print res
+
+def printErrorResults(fg_results):
+
+    error_results = 0
+    for testResult in fg_results:
+	    if testResult.status != ResultStatus.SUCCESS:
+		    error_results += 1
+
+    print "#number_of_found_error_results: %d"%(error_results)
+
+    for testResult in fg_results:
+	    if testResult.status != ResultStatus.SUCCESS:
+                print testResult

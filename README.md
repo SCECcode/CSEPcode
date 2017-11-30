@@ -15,21 +15,20 @@ a start_date and end_date. Reports can include all found data, missing data, or 
 * Forecast model: ETAS, STEP, and others
 * test_name: N-test, R-Test
 
-## Basic Logic:
-If the same output reports are expected for all models in a forecast group.
-Then:
-
-define a forecast group with one or more models under test, 
+## Basic Program Processing Logic:
+Select a forecast group with one or more models under test, 
 and one or more test types for each model
 
-for each model in forecast group:
-figure out the scheduled result times over the period of interest
+For each model in forecast group:
+  figure out the scheduled forecast evaluation test result times over the period of interest
 
 For each model in forecast group:
-for each scheduled_result:
-forecast_result = find_forecast_results(model_name,test_name,duration,forecast_result)
+  for each scheduled_result:
+    forecast_result = find_forecast_results(model_name,test_name,duration,forecast_result)
 
 ## Basic Report Logic
+After the filesystem is searched for all forecast_evaluation_result files,
+
 for each scheduled_result:
   if result.status = SUCCESS
        print result.data
